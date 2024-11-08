@@ -1,7 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: postgres-deployment
+  name: postgres-spring-users-deployment
+  labels:
+    app: postgres-spring-users
+  annotations:
+    description: "This is the database for the users microservice."
 spec:
   replicas: 1
   selector:

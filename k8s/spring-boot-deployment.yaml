@@ -1,20 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-boot-app
+  name: spring-boot-user-app
+  labels:
+    app: spring-boot-user
+  annotations:
+    description: "This is the server for the users microservice."
 spec:
-  replicas: 1  # Número de réplicas del pod que deseas
+  replicas: 1
   selector:
     matchLabels:
-      app: spring-boot-app
+      app: spring-boot-user-app
   template:
     metadata:
       labels:
-        app: spring-boot-app
+        app: spring-boot-user-app
     spec:
       containers:
-        - name: spring-boot-app
-          image: emilykodocker/spring-boot-app:latest  # Usa la imagen de Docker que hayas subido
+        - name: spring-boot-user-app
+          image: emilykodocker/spring-bitware-users:latest
           ports:
             - containerPort: 8080
           env:
