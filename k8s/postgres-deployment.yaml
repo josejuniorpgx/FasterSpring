@@ -25,7 +25,7 @@ spec:
             - name: POSTGRES_PASSWORD
               value: "admin"
             - name: POSTGRES_DB
-              value: "mydb"
+              value: "users_db"
           ports:
             - containerPort: 5432
           volumeMounts:
@@ -34,4 +34,4 @@ spec:
       volumes:
         - name: postgres-storage
           persistentVolumeClaim:
-            claimName: postgres-pvc
+            claimName: postgres-spring-users-pvc
